@@ -1,0 +1,19 @@
+{
+  "name": "webpack-ethers-test",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "frontend": "webpack serve --config ./webpack.config.js --devtool source-map --content-base public",
+    "build": "NODE_ENV=prod webpack --config ./webpack.config.js"
+  },
+  "author": "Cameron Hejazi",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "5.0.19",
+    "core-js": "^3.8.3",
+    "regenerator-runtime": "^0.13.7",
+    "webpack": "^5.20.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
