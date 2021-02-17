@@ -2,21 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = (env) => {
-  if (process.env.NODE_ENV == 'prod') {
-    outputFile = 'bundle.min.js';
-  }
-  else {
-    outputFile = 'bundle.js';
-  }
-
   return {
     entry: ['./index.js'],
-    mode: (process.env.NODE_ENV == 'prod' || process.env.NODE_ENV == 'qa') ? 'production' : 'development',
+    mode: process.env.NODE_ENV == 'prod' ? 'production' : 'development',
     plugins: [],
     resolve: { extensions: ['.js'] },
     output: {
       path: path.resolve(__dirname, 'public/build'),
-      filename: outputFile,
+      filename: process.env.NODE_ENV == 'prod' ? 'bundle.min.js' : 'bundle.js',
       chunkFilename: '[name].[contenthash].bundle.js',
       publicPath: '/build/'
     },
